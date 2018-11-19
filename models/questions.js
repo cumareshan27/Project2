@@ -1,15 +1,16 @@
-module.exports = function (sequelize, DataTypes){
-    var Question = sequelize.define("question", {
+/*eslint-disable*/
+module.exports = function (sequelize, DataTypes) {
+    var Question = sequelize.define("Question", {
         answer: DataTypes.STRING,
     });
-    User.associate = function(models) {
-        User.hasMany(models.Response);
-        onDelete: "cascade";
-      };
-    
-      User.associate = function(models) {
-        User.hasMany(models.Question);
-        onDelete: "cascade";
-      };
-      return Question;
+    // Question.associate = function (models) {
+    //     Question.hasMany(models.Response);
+    //     onDelete: "cascade";
+    // };
+
+    // Question.associate = function (models) {
+    //     Question.hasMany(models.Question);
+    //     onDelete: "cascade";
+    // };
+    return Question;
 };
