@@ -1,11 +1,13 @@
 // require("config.json").config();
 var express = require("express");
+var socket = require("socket.io");
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+var server;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -35,13 +37,38 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+  server = app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
       PORT
     );
   });
+}).then(function(){
+  var io = socket(server);
+io.on('connection', function(socket){
+  console.log('connected on ' + socket.id); //look to push/pop connections into users list
+
+  socket.on("prompt",function(data){
+    console.log("A message from publisher was received...");
+    io.sockets.emit("prompt",data);
+    console.log('The message was sent.');
+  });
 });
 
-module.exports = app;
+});
+
+
+// var io = socket(server);
+// io.on('connection', function(socket){
+//   console.log('connected on ' + socket.id); //look to push/pop connections into users list
+
+//   socket.on("prompt",function(data){
+//     console.log("A message from publisher was received...");
+//     io.sockets.emit("prompt",data);
+//     console.log('The message was sent.');
+//   });
+// });
+
+// module.exports = app;
+module.exports = {app, PORT};

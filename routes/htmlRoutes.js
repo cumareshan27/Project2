@@ -1,5 +1,6 @@
 var db = require("../models");
 
+
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
@@ -9,6 +10,30 @@ module.exports = function(app) {
         examples: dbExamples
       });
     });
+  });
+
+  app.get("/publish", function(req, res) {
+    // var dynPort = server.PORT;
+    // console.log("dynPort = " + dynPort);
+    var PORT = require('../server').PORT;
+    console.log("dynPort = " + PORT);
+    res.render("publish",{msg: "Publisher Panel"});
+    // db.Example.findAll({}).then(function(dbExamples) {
+      // res.render("index", {
+      //   msg: "Welcome!",
+      //   examples: dbExamples
+      // });
+    // });
+  });
+
+  app.get("/subscribe", function(req, res) {
+    res.render("subscribe",{msg: "Listening..."});
+    // db.Example.findAll({}).then(function(dbExamples) {
+      // res.render("index", {
+      //   msg: "Welcome!",
+      //   examples: dbExamples
+      // });
+    // });
   });
 
   // Load example page and pass in an example by id
