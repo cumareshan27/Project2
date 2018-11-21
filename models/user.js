@@ -7,10 +7,15 @@ module.exports = function(sequelize, DataTypes) {
     gender: DataTypes.TEXT
   });
 
-  // User.associate = function(models) {
-  //   User.hasMany(models.Response);
-  //   onDelete: "cascade";
-  // };
+    // User.associate = function (models) {
+    //     User.belongsTo(models.Response);
+    //     //Response.belongsTo(models.Question);
+    // }
+
+  User.associate = function(models) {
+    User.hasMany(models.Response);
+    onDelete: "cascade";
+  };
 
   // User.associate = function(models) {
   //   User.hasMany(models.Question);
