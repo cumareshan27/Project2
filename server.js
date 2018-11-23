@@ -32,43 +32,30 @@ var syncOptions = { force: false };
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
-  syncOptions.force = false;
+  syncOptions.force = true;
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  server = app.listen(PORT, function() {
+db.sequelize.sync(syncOptions).then(function () {
+  server = app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
       PORT
     );
   });
-}).then(function(){
+}).then(function () {
   var io = socket(server);
-io.on('connection', function(socket){
-  console.log('connected on ' + socket.id); //look to push/pop connections into users list
+  io.on('connection', function (socket) {
+    console.log('connected on ' + socket.id); //look to push/pop connections into users list
 
-  socket.on("prompt",function(data){
-    console.log("A message from publisher was received...");
-    io.sockets.emit("prompt",data);
-    console.log('The message was sent.');
+    socket.on("prompt", function (data) {
+      console.log("A message from publisher was received...");
+      io.sockets.emit("prompt", data);
+      console.log('The message was sent.');
+    });
   });
-});
 
 });
 
-
-// var io = socket(server);
-// io.on('connection', function(socket){
-//   console.log('connected on ' + socket.id); //look to push/pop connections into users list
-
-//   socket.on("prompt",function(data){
-//     console.log("A message from publisher was received...");
-//     io.sockets.emit("prompt",data);
-//     console.log('The message was sent.');
-//   });
-// });
-
-// module.exports = app;
-module.exports = {app, PORT};
+module.exports = { app, PORT };

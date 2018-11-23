@@ -1,6 +1,7 @@
 /*eslint-disable*/
 module.exports = function (sequelize, DataTypes) {
     var Question = sequelize.define("Question", {
+        UTC: DataTypes.STRING,  // Might need to pull this out
         prompt: DataTypes.STRING,  //** This name should be adjusted
     });
 
