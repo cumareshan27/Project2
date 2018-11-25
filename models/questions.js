@@ -1,7 +1,8 @@
 /*eslint-disable*/
 module.exports = function (sequelize, DataTypes) {
     var Question = sequelize.define("Question", {
-        answer: DataTypes.STRING,
+        UTC: DataTypes.STRING,  // Might need to pull this out
+        prompt: DataTypes.STRING,  //** This name should be adjusted
     });
 
     // Question.associate = function (models) {
