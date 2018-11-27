@@ -26,7 +26,7 @@ app.post("/api/examples", function (req, res) {
 
 
 //***************************************************************************************/
-// Get the record where the UTC matches the values supplied
+// Get the question record where the UTC matches the values supplied
 //***************************************************************************************/
 app.get("/api/posts/:UTC", function(req, res) {
   console.log("routeHandle = " + req.params.UTC);
@@ -40,6 +40,43 @@ app.get("/api/posts/:UTC", function(req, res) {
     });
 });
 
+
+//***************************************************************************************/
+// Get the user record where the UTC matches the values supplied
+//***************************************************************************************/
+app.get("/api/users/:UTC", function(req, res) {
+  console.log("routeHandle = " + req.params.UTC);
+  db.User.findOne({
+    where: {
+      UTC: req.params.UTC
+    }
+  })
+    .then(function(dbUser) {
+      res.json(dbUser);
+    });
+});
+
+
+//***************************************************************************************/
+// Add a record to the users table when a new user registers
+//***************************************************************************************/
+app.post("/api/users", function (req, res) {
+  console.log(req.body);
+  db.User.create({
+    UTC: req.body.UTC,
+    alias: req.body.alias,
+    gender: req.body.gender,
+    zip: req.body.zip,
+    demo0: req.body.demo0,
+    demo1: req.body.demo1,
+    demo2: req.body.demo2
+  })
+    .then(function (dbUser) {
+      res.json(dbUser);
+      console.log("dbUser = " + dbUser);
+      console.log("JSON.dbUser = " + JSON.stringify(dbUser));
+    });
+});
 
 
 //***************************************************************************************/
