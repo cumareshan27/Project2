@@ -32,7 +32,7 @@ var syncOptions = { force: false };
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
+  syncOptions.force = true;   //change to true before commit
 }
 
 // Starting the server, syncing our models ------------------------------------/
