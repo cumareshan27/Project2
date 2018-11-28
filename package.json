@@ -11,9 +11,12 @@
   },
   "license": "ISC",
   "dependencies": {
+    "apexcharts": "^2.2.3",
+    "chart.js": "^2.7.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "install": "^0.12.2",
     "mysql2": "^1.5.3",
     "sequelize": "^4.38.0"
   },

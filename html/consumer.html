@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Consumer View</title>
+</head>
+
+<body>
+
+    <h1>Analytics Page</h1>
+
+    Select Question
+    <br>
+    <select>
+        <option>This</option>
+        <option>Should</option>
+        <option>Pull from questions table</option>
+    </select>
+    <br> Compare
+    <select>
+        <option>This</option>
+        <option>Should</option>
+        <option>Pull from database</option>
+    </select>
+    <br> With
+    <select>
+        <option>This</option>
+        <option>Should</option>
+        <option>Pull from database</option>
+    </select>
+    <br> Hit the submit button when done.
+    <br>
+    <input type="submit" value="Submit">
+    </form>
+    <br>
+
+<h1>A graph will load here</h1>
+
+<div id="chart"></div>
+
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<script>
+
+
+
+var options = {
+            chart: {
+                width: 380,
+                type: 'pie',
+            },
+            labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+            series: [44, 55, 13, 43, 22],
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        }
+
+        var chart = new ApexCharts(
+            document.querySelector("#chart"),
+            options
+        );
+
+        chart.render();
+
+    
+  
+  </script>
