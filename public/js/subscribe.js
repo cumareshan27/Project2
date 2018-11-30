@@ -106,3 +106,4 @@ $(document).ready(function () {
   //*******************************************************************************************/
   leaveButton.on("click", handleLeaveRequest);
 });
+
