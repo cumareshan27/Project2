@@ -34,14 +34,14 @@ var syncOptions = { force: false};
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;   //change to true before commit
+  syncOptions.force = false;   //change to true before commit
 }
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function () {
   server = app.listen(PORT, function () {
     console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser for environment " + env ,
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
       PORT
     );

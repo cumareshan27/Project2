@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/styles/repselect.css" media="screen" title="no title" charset="utf-8">
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-1 offset-1"><img id="pvImg" src="/images/PoleVaultTransparent.png" height="60" width="60"></div>
+    <h1 class="text-center mt-2" id="pageTitle">Data Analysis</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 offset-2">
+      <h4 class="mb-4" id="pageInstr">Select the prompt to sample and click the "Generate" button.</h4>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-3 offset-2">
+      <div class="dropdown mt-3 pt-2">
+        <select id="promptSelect">
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <button class="btn btn-primary btn-sm text-center mt-4 mb-3 ml-4" id="generateBtn" type="submit">Generate</button>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12 mt-4 mb-5" id="chartArea">
+    </div>
+  </div>
+
+  {{!-- <div class="row"></div>
+  <div class="row"></div>
+  <div class="row"></div> --}}
+  <div class="row">
+    <div class="col-md-12 offset-3 mt-5" id="exitButton">
+      <button id="leaveButton" class="btn btn-primary mt-4">Leave</button>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script type="text/javascript" src="/js/repselect.js"></script>
