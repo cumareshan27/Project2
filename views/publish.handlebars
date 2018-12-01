@@ -3,57 +3,55 @@
 <div id="publish">
   <div class="container">
     <div class="row">
-      {{!-- <div class="col-8 offset-2"> --}}
-        {{!-- <h1>{{msg}}</h1> --}}
-        <div class="col-md-1 offset-1"><img id="pvImg" src="/images/PoleVaultTransparent.png" height="60" width="60"></div>
-        <div class="col-md-6 mb-2">
-          <h1>{{msg}}</h1>
-        </div>
+      <div class="col-md-1 offset-1"><img id="pvImg" src="/images/PoleVaultTransparent.png" height="60" width="60"></div>
+      <div class="col-md-6 mb-2">
+        <h1>{{msg}}</h1>
       </div>
-      <div class="row">
-        <div class="col-md-8 offset-2">
-          <form>
-            <div class="form-group">
-              <label for="promptInput">Input Question</label>
-              <textarea class="form-control" id="promptInput" rows="5"></textarea>
+    </div>
+    <div class="row">
+      <div class="col-md-8 offset-2">
+        <form>
+          <div class="form-group">
+            <label for="promptInput">Input Question</label>
+            <textarea class="form-control" id="promptInput" rows="5"></textarea>
 
-              <div class="row mt-4">
-                <div class="col-md-5 text-center">
-                  <label for="promptBtn1">Button 1 Text</label>
-                </div>
-                <div class="col-md-5 offset-2 text-center">
-                  <label for="promptBtn2">Button 2 Text</label>
-                </div>
+            <div class="row mt-4">
+              <div class="col-md-5 text-center">
+                <label for="promptBtn1">Button 1 Text</label>
               </div>
-
-              <div class="row">
-                <div class="col-md-5 text-center">
-                  <input class="form-control text-center" type="text" id="promptBtn1">
-                </div>
-                <div class="col-md-5 offset-2 text-center">
-                  <input class="form-control text-center" type="text" id="promptBtn2">
-                </div>
+              <div class="col-md-5 offset-2 text-center">
+                <label for="promptBtn2">Button 2 Text</label>
               </div>
-
             </div>
-          </form>
-        </div>
-      </div>
 
-      <div class="row text-center mt-3">
-        <div class="col-8 offset-2" id="buttonArea1">
-          <button id="sendButton" class="btn btn-primary mt-2 mb-2 mx-3">Send</button>
-          <button id="leaveButton" class="btn btn-primary mt-2 mb-2 mx-3">Leave</button>
-        </div>
-      </div>
+            <div class="row">
+              <div class="col-md-5 text-center">
+                <input class="form-control text-center" type="text" id="promptBtn1">
+              </div>
+              <div class="col-md-5 offset-2 text-center">
+                <input class="form-control text-center" type="text" id="promptBtn2">
+              </div>
+            </div>
 
-      <div class="row text-center mt-4">
-        <div class="col-8 offset-2" id="buttonArea2">
-          <button id="closePollButton" class="btn btn-primary mt-2 mb-2 mx-3">Close Poll</button>
-        </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row text-center mt-3">
+      <div class="col-8 offset-2" id="buttonArea1">
+        <button id="sendButton" class="btn btn-primary mt-2 mb-2 mx-3">Send</button>
+        <button id="leaveButton" class="btn btn-primary mt-2 mb-2 mx-3">Leave</button>
+      </div>
+    </div>
+
+    <div class="row text-center mt-4">
+      <div class="col-8 offset-2" id="buttonArea2">
+        <button id="closePollButton" class="btn btn-primary mt-2 mb-2 mx-3">Close Poll</button>
       </div>
     </div>
   </div>
+</div>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/publish.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/publish.js"></script>

@@ -3,6 +3,9 @@ $(document).ready(function () {
   var leaveButton = $("#leaveButton");
 
 
+  //*******************************************************************************************/
+  // Check local storage to see if an app user has accessed the app before
+  //*******************************************************************************************/
   var UID = localStorage.getItem("PollVault_User");
   var userObject = JSON.parse(UID);
   if (userObject) {
@@ -22,7 +25,6 @@ $(document).ready(function () {
   // Have socket.io listen for incoming messages and display to designated screen area as HTML
   //*******************************************************************************************/
   socket.on("prompt", function (data) {
-    console.log("message from pub:  " + JSON.stringify(data));
     outputArea.html(data.message);
   });
 
@@ -41,7 +43,6 @@ $(document).ready(function () {
   //*******************************************************************************************/
   var handlePassRequest = function (event) {
     event.preventDefault();
-    console.log("Pass button triggered");
     var qId = $(this).data("id");
     var newResponse = {
       QuestionId: qId,
@@ -58,9 +59,6 @@ $(document).ready(function () {
   //*******************************************************************************************/
   var handleButton1 = function (event) {
     event.preventDefault();
-    console.log("Button 1 triggered");
-    console.log("Button 1 value = " + this.value);
-    console.log("qID = " + $(this).data("id"));
     var qId = $(this).data("id");
     var newResponse = {
       QuestionId: qId,
@@ -77,9 +75,6 @@ $(document).ready(function () {
   //*******************************************************************************************/
   var handleButton2 = function (event) {
     event.preventDefault();
-    console.log("Button 2 triggered");
-    console.log("Button 2 value = " + this.value);
-    console.log("qID = " + $(this).data("id"));
     var qId = $(this).data("id");
     var newResponse = {
       QuestionId: qId,
@@ -96,8 +91,6 @@ $(document).ready(function () {
   //*******************************************************************************************/
   function recordResponse(Post) {
     $.post("/api/response/", Post, function () {
-      // window.location.href = "/";
-      console.log("Posted:  " + JSON.stringify(Post));
     });
   }
 
