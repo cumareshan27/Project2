@@ -3,6 +3,15 @@ $(document).ready(function () {
   var leaveButton = $("#leaveButton");
 
 
+  var UID = localStorage.getItem("PollVault_User");
+  var userObject = JSON.parse(UID);
+  if (userObject) {
+    var userId = userObject.id;
+  } else {
+    window.location.href = "/register";
+  };
+
+
   //*******************************************************************************************/
   // Allow socket.io to auto-detect the port for dynamic deployments like Heroku
   //*******************************************************************************************/
@@ -36,7 +45,7 @@ $(document).ready(function () {
     var qId = $(this).data("id");
     var newResponse = {
       QuestionId: qId,
-      UserId: "1",
+      UserId: userId,
       answer: "passed"
     };
     recordResponse(newResponse);
@@ -55,7 +64,7 @@ $(document).ready(function () {
     var qId = $(this).data("id");
     var newResponse = {
       QuestionId: qId,
-      UserId: "1",
+      UserId: userId,
       answer: this.value
     };
     recordResponse(newResponse);
@@ -74,7 +83,7 @@ $(document).ready(function () {
     var qId = $(this).data("id");
     var newResponse = {
       QuestionId: qId,
-      UserId: "1",
+      UserId: userId,
       answer: this.value
     };
     recordResponse(newResponse);

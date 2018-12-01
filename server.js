@@ -4,6 +4,7 @@ var socket = require("socket.io");
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
+var env = process.env.NODE_ENV; 
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -29,6 +30,7 @@ require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
+
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
@@ -39,7 +41,7 @@ if (process.env.NODE_ENV === "test") {
 db.sequelize.sync(syncOptions).then(function () {
   server = app.listen(PORT, function () {
     console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser for environment " + env ,
       PORT,
       PORT
     );
