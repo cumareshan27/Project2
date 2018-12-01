@@ -24,6 +24,28 @@ app.post("/api/examples", function (req, res) {
   });
 
 
+//***************************************************************************************/
+// Get all questions to populate the reporting screen
+//***************************************************************************************/
+app.get("/api/questions", function(req, res) {
+  db.Question.findAll({order: [['id', 'DESC']]}).then(function(dbQuestion) {
+    res.json(dbQuestion);
+  });
+});
+
+
+//***************************************************************************************/
+// Get all response for a given question ID and send data to the reporting screen
+//***************************************************************************************/
+app.get("/api/responses/:ID", function(req, res) {
+  db.Response.findAll({
+    where: {Questionid: req.params.ID
+    }
+  }).then(function(dbResponse) {
+    res.json(dbResponse);
+  });
+});
+
 
 //***************************************************************************************/
 // Get the question record where the UTC matches the values supplied

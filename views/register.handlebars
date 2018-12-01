@@ -1,25 +1,29 @@
 <link rel="stylesheet" href="/styles/register.css" media="screen" title="no title" charset="utf-8">
 
 <div class="container">
-  <h1 class="text-center" id="pageTitle">{{msg}}</h1>
-  <h4 class="text-center" id="pageInstr">Please build your general profile to see your views in relation to peers and neighbors.</h4>
+
   <div class="row">
-    <div class="col-md-10 offset-1">
+    <div class="col-md-1 offset-1"><img id="pvImg" src="/images/PoleVaultTransparent.png" height="60" width="60"></div>
+    <h1 class="text-center mt-2" id="pageTitle">{{msg}}</h1>
+  </div>
 
-{{!-- Get the user's alias --}}
-      <div class="col-md-5 mb-3 mt-5">
-        <label for="username">Your Alias</label>
-        <div class="input-group">
-          <input type="text" class="form-control" id="username" placeholder="Alias" required>
-          <div class="invalid-feedback" style="width: 100%;">
-            An alias is required.
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-md-10 offset-2">
+      <h4 class="mb-5" id="pageInstr">Please build your profile to see your views in relation to peers and neighbors.</h4>
+    </div>
+  </div>
+
+  {{!-- -------------------------------------------------------------------------------------------------------- --}}
+  <div class="row mt-3">
+    <div class="col-md-4 offset-1">
+      <label for="username">Your Alias</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="username" placeholder="Alias" required>
       </div>
-      <hr class="mb-4">
+    </div>
 
-{{!-- Get the gender --}}
-      <div class="d-block my-3">
+    <div class="col-md-4 offset-1 mt-4">
+      <div class="d-block">
         <div class="custom-control custom-radio">
           <input id="genderM" name="gender" type="radio" value="male" class="custom-control-input" required>
           <label class="custom-control-label" for="genderM">Male</label>
@@ -29,50 +33,71 @@
           <label class="custom-control-label" for="genderF">Female</label>
         </div>
       </div>
-      <hr class="mb-4">
-
-{{!-- Get the birth year --}}
-      <div class="col-md-3 mb-3">
-        <label for="birthYear">Birth Year</label>
-        <input type="text" class="form-control" id="birthYear" placeholder="Birth Year" required>
-        <div class="invalid-feedback">
-          Birth year value is required
-        </div>
-      </div>
-      <hr class="mb-4">
-
-{{!-- Get the residing zip code --}}
-      <div class="col-md-3 mb-3">
-        <label for="zip">Zip</label>
-        <input type="text" class="form-control" id="zip" placeholder="Zip Code" required>
-        <div class="invalid-feedback">
-          Zip code required.
-        </div>
-      </div>
-      <hr class="mb-4">
-
-{{!-- Get demographic data --}}
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" name="demographic" id="qual1">
-        <label class="custom-control-label" for="qual1">Sample demographic opt-in #1</label>
-      </div>
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" name="demographic" id="qual2">
-        <label class="custom-control-label" for="qual2">Sample demographic opt-in #2</label>
-      </div>
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" name="demographic" id="qual3">
-        <label class="custom-control-label" for="qual3">Sample demographic opt-in #3</label>
-      </div>
-      <hr class="mb-4">
-
-{{!-- Give the user a button to continue --}}
-      <div class="text-center">
-        <button class="btn btn-primary btn-lg text-center mb-3" id="continueBtn" type="submit">Continue</button>
-      </div>
-      </form>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-11 offset-1">
+      <hr class="mb-4">
+    </div>
+  </div>
+  {{!-- -------------------------------------------------------------------------------------------------------- --}}
+
+  {{!-- -------------------------------------------------------------------------------------------------------- --}}
+
+  {{!-- Get the birth year --}}
+  <div class="row">
+    <div class="col-md-4 offset-1">
+      <label for="birthYear">Birth Year</label>
+      <input type="text" class="form-control" id="birthYear" placeholder="Birth Year" required>
+    </div>
+    {{!-- Get the residing zip code --}}
+    <div class="col-md-4 offset-1">
+      <label for="zip">Zip</label>
+      <input type="text" class="form-control" id="zip" placeholder="Zip Code" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-11 offset-1">
+      <hr class="mb-4">
+    </div>
+  </div>
+
+  {{!-- ------------------------------------------------------------------------------------------------------- --}}
+
+  {{!-- Get demographic data --}}
+  <div class="row">
+    <div class="col-md-3 offset-1">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" name="demographic" id="qual1">
+        <label class="custom-control-label" for="qual1">Are you married?</label>
+      </div>
+    </div>
+    <div class="col-md-3 offset-1">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" name="demographic" id="qual2">
+        <label class="custom-control-label" for="qual2">Have a bachelors degree?</label>
+      </div>
+    </div>
+    <div class="col-md-3 offset-1">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" name="demographic" id="qual3">
+        <label class="custom-control-label" for="qual3">Are you a veteran?</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-11 offset-1">
+    <hr class="mb-4">
+  </div>
+</div>
+
+{{!-- Give the user a button to continue --}}
+<div class="text-center">
+  <button class="btn btn-primary btn-lg text-center mt-4 mb-3" id="continueBtn" type="submit">Continue</button>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

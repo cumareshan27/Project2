@@ -133,8 +133,8 @@ $(document).ready(function () {
   var handleCloseRequest = function (event) {
     event.preventDefault();
     console.log("Poll was closed by admin.");
-    // var contents = "<h5>Previous poll has closed.<br>No active poll.</h5>"; 
-    var contents = "";
+    var contents = "<h5>Previous poll has closed.<br>No active poll.</h5>"; 
+    // var contents = "";
     //*******************************************************************************************/
     // Use socket.io to send default message or blank text to subscribers
     //*******************************************************************************************/
@@ -145,6 +145,9 @@ $(document).ready(function () {
     //*******************************************************************************************/
     // Clear the screen on the publisher side to prevent resending the same poll
     //*******************************************************************************************/
+  questionText.val("");
+  questionBtn1.val("");
+  questionBtn2.val("");
   };
 
 

@@ -1,21 +1,33 @@
 <link rel="stylesheet" href="/styles/regAdmin.css" media="screen" title="no title" charset="utf-8">
 
 <div class="container">
-  <h1 class="text-center" id="pageTitle">Register As Publisher?</h1>
-  <h4 class="text-center" id="pageInstr">This link will set a local secret allowing your device to be a publisher.</h4>
-  <div class="row">
-    <div class="col-md-10 offset-1">
 
-{{!-- Give the user a button to continue --}}
-      <div class="text-center">
-        <button class="btn btn-primary btn-lg text-center mt-5 mb-3" id="continueBtn" type="submit">Register Me!</button>
-      </div>
-      <div class="text-center">
-        <button class="btn btn-primary btn-lg text-center mt-5 mb-3" id="leaveBtn" type="submit">Leave</button>
-      </div>
-      </form>
+  <div class="row">
+    {{!-- <div class="col-md-2"> --}}
+      <div class="col-md-1 offset-2"><img id="pvImg" src="/images/PoleVaultTransparent.png" height="60" width="60"></div>
+      {{!-- </div> --}}
+      <h1 class="text-center mt-2" id="pageTitle">Register As Publisher?</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9 offset-2">
+      <h5 class="text-center" id="pageInstr">This link will register a local secret allowing your device to be a
+        publisher.</h5>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-10 offset-1">
+      {{!-- Give the user a button to continue --}}
+      <div class="text-center">
+        <button class="btn btn-primary btn text-center mt-5 mb-3" id="continueBtn" type="submit">Let's Proceed</button>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary btn text-center mt-3 mb-3" id="leaveBtn" type="submit">Leave</button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -18,6 +18,16 @@ module.exports = function (app) {
     });
   });
 
+  //***************************************************************************************/
+  // Provide a route for registering a new subscriber
+  //***************************************************************************************/
+    app.get("/reports", function (req, res) {
+      db.Question.findAll().then(function (dbQuestion) {
+        res.render("repselect", {
+          qlist: dbQuestion
+        });
+      });
+    });
 
   //***************************************************************************************/
   // Provide a route for registering a new subscriber
