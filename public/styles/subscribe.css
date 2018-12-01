@@ -1,0 +1,22 @@
+.list-group-item {
+  line-height: 2.5;
+}
+
+#promptArea {
+  min-height: 250px;
+}
+
+#promptText {
+  margin-bottom: 7px;
+  color: red;
+}
+
+#promptB1 {
+  margin-bottom: 7px;
+  /* color: blue; */
+}
+
+#promptB2 {
+  margin-bottom: 7px;
+  /* color: green; */
+}

@@ -11,30 +11,21 @@
 <body>
 
     <h1>Analytics Page</h1>
+    
+    <br>
+   
+    <button type="submit"  onClick="refreshPage()">Refresh/Clear Button</button>
+
+    <br>
 
     Select Question
     <br>
-    <select>
-        <option>This</option>
-        <option>Should</option>
-        <option>Pull from questions table</option>
-    </select>
-    <br> Compare
-    <select>
-        <option>This</option>
-        <option>Should</option>
-        <option>Pull from database</option>
-    </select>
-    <br> With
-    <select>
-        <option>This</option>
-        <option>Should</option>
-        <option>Pull from database</option>
-    </select>
+    <select id="selectQuestion"> </select>
+    <br> 
     <br> Hit the submit button when done.
     <br>
-    <input type="submit" value="Submit">
-    </form>
+    
+    <button onclick="makeCharts()">Generate</button>
     <br>
 
 <h1>A graph will load here</h1>
@@ -45,9 +36,33 @@
 
 </html>
 
+<script src="../js/reports.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
 <script>
+
+$.get('/api/question', function(results) {
+   console.log(results)
+    for (var i in results) {
+        var opt = $("<option>");
+        opt.attr("value", results[i].questions);
+        opt.test(results[i].anothersomething);
+        $('select').append(opt);
+    }
+});
+
+function makeCharts(){
+///chart 
+console.log("Make chart")
+
+var answerOne = [1];
+var answerTwo = [2];
+var answerThree = [3];
+
+var choiceName1 = ["a"];
+var choiceName2 = ["b"];
+var choiceName3 = ["c"];
 
 
 
@@ -56,8 +71,9 @@ var options = {
                 width: 380,
                 type: 'pie',
             },
-            labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-            series: [44, 55, 13, 43, 22],
+        
+            labels: [choiceName1, choiceName2, choiceName3],
+            series: [answerOne, answerTwo, answerThree],
             responsive: [{
                 breakpoint: 480,
                 options: {
@@ -70,14 +86,16 @@ var options = {
                 }
             }]
         }
-
         var chart = new ApexCharts(
             document.querySelector("#chart"),
             options
         );
-
         chart.render();
+    }
 
-    
-  
+
+function refreshPage(){
+    window.location.reload();
+};
+
   </script>
