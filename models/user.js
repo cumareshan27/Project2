@@ -1,4 +1,3 @@
-/*eslint-disable*/
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     UTC: DataTypes.STRING, 
@@ -11,20 +10,10 @@ module.exports = function(sequelize, DataTypes) {
     demo2: DataTypes.BOOLEAN
   });
 
-    // User.associate = function (models) {
-    //     User.belongsTo(models.Response);
-    //     //Response.belongsTo(models.Question);
-    // }
-
   User.associate = function(models) {
     User.hasMany(models.Response);
     onDelete: "cascade";
   };
-
-  // User.associate = function(models) {
-  //   User.hasMany(models.Question);
-  //   onDelete: "cascade";
-  // };
 
   return User;
 };

@@ -2,21 +2,16 @@ var db = require("../models");
 
 
 module.exports = function (app) {
-  // Load index page
+
+
+  //***************************************************************************************/
+  // Handle the route to the default page
+  //***************************************************************************************/
   app.get("/", function (req, res) {
     res.render("index", {
     });
   });
 
-
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function (req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
 
   //***************************************************************************************/
   // Provide a route for registering a new subscriber
@@ -29,6 +24,7 @@ module.exports = function (app) {
       });
     });
 
+    
   //***************************************************************************************/
   // Provide a route for registering a new subscriber
   //***************************************************************************************/

@@ -49,7 +49,7 @@ db.sequelize.sync(syncOptions).then(function () {
 }).then(function () {
   var io = socket(server);
   io.on('connection', function (socket) {
-    console.log('connected on ' + socket.id); //look to push/pop connections into users list
+    console.log('connected on ' + socket.id); 
 
     socket.on("prompt", function (data) {
       console.log("A message from publisher was received...");
